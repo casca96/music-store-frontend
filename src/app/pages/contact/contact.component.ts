@@ -23,28 +23,13 @@ export class ContactComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    //creates contact form
     this.contactForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]], //validates email address
-      subject: ['', Validators.required], // checks the field is not empty
+      email: ['', [Validators.required, Validators.email]],
+      subject: ['', Validators.required],
       message: ['', Validators.required]
     });
-
-    this.loadContactInfo();
   }
 
-  loadContactInfo(): void {
-    this.apiService.getContactInfo().subscribe({
-      next: (data) => {
-        this.contactInfo = data;
-      },
-      error: (err) => {
-        console.error('Error loading contact info:', err);
-      }
-    });
-  }
-
-  //after I submit immediatelly
   onSubmit(): void {
     this.submitted = true;
 
@@ -52,11 +37,9 @@ export class ContactComponent implements OnInit {
       return;
     }
 
-    //calls backedn and sends data (contactForm.value)
     this.apiService.submitContactData(this.contactForm.value).subscribe({
       next: (response) => {
         this.success = true;
-        //resets the form and sets submitted to to false
         this.contactForm.reset();
         this.submitted = false;
       },
@@ -67,5 +50,5 @@ export class ContactComponent implements OnInit {
     });
   }
 
-  get f() { return this.contactForm.controls; }
+  get form() { return this.contactForm.controls; }
 }

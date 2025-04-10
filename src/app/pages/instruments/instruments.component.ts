@@ -24,13 +24,10 @@ export class InstrumentsComponent implements OnInit {
 
   loadInstruments(): void {
     this.loading = true;
-    //listens
     this.apiService.getInstruments().subscribe({
-      //on success
       next: (data) => {
         //store to instruments
         this.instruments = data;
-        //extract from instruments
         this.extractCategories();
         this.loading = false;
       },
@@ -44,14 +41,11 @@ export class InstrumentsComponent implements OnInit {
 
   extractCategories(): void {
     const categorySet = new Set<string>();
-    //loops trough set of categories and stores unique
     this.instruments.forEach(instrument => {
       categorySet.add(instrument.category);
     });
 
     this.categories = Array.from(categorySet);
-    //saves as an array to categories
-
   }
 
   filterByCategory(category: string): void {

@@ -25,9 +25,6 @@ export class ApiService {
     return this.http.get(`${this.apiUrl}/instruments/category/${category}`);
   }
 
-  getContactInfo(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/contact`);
-  }
   submitContactData(data: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/contact/`, data); // URL + BODY
   }
