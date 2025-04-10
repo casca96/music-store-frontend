@@ -1,0 +1,26 @@
+<h2>Artists</h2>
+
+<div *ngIf="loading" class="text-center">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<div *ngIf="error" class="alert alert-danger">
+  {{ error }}
+</div>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+  <div class="col" *ngFor="let artist of artists">
+    <div class="card h-100">
+      <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="{{ artist.name }}">
+      <div class="card-body">
+        <h5 class="card-title">{{ artist.name }}</h5>
+        <p class="card-text">{{ artist.bio }}</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">{{ artist.albums.length }} Albums</small>
+      </div>
+    </div>
+  </div>
+</div>
