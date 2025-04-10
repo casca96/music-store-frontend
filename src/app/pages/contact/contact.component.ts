@@ -8,7 +8,6 @@ import { ApiService } from '../../services/api.service';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.css'
 })
 
 export class ContactComponent implements OnInit {

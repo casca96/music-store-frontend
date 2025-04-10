@@ -17,20 +17,8 @@ export class ApiService {
     return this.http.get(`${this.apiUrl}/artists`);
   }
 
-  getArtistsById(id: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/artists/${id}`);
-  }
-
-  getArtistsAlbums(id: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/artists/${id}/albums`);
-  }
-
   getInstruments(): Observable<any> {
     return this.http.get(`${this.apiUrl}/instruments`);
-  }
-
-  getInstrumentById(id: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/instruments/${id}`);
   }
 
   getInstrumentByCategory(category: string): Observable<any> {

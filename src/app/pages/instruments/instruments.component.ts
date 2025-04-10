@@ -7,7 +7,6 @@ import { ApiService } from '../../services/api.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './instruments.component.html',
-  styleUrl: './instruments.component.css'
 })
 export class InstrumentsComponent implements OnInit {
   instruments: any[] = [];
@@ -58,15 +57,12 @@ export class InstrumentsComponent implements OnInit {
   filterByCategory(category: string): void {
     this.selectedCategory = category;
 
-    //validation for null cases
     if (category === '') {
       this.loadInstruments();
       return;
     }
 
     this.loading = true;
-
-    //fetches data for selected category
     this.apiService.getInstrumentByCategory(category).subscribe({
       next: (data) => {
         this.instruments = data;

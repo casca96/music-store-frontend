@@ -7,7 +7,6 @@ import { ApiService } from '../../services/api.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './artists.component.html',
-  styleUrl: './artists.component.css'
 })
 export class ArtistsComponent implements OnInit {
   artists: any[] = [];
